@@ -1,6 +1,6 @@
 defmodule SearchAddressParallel do
-  def start(ceps) do
-    ceps
+  def start do
+    File.stream!('ceps.txt')
       |> Enum.map(&create_task/1) # Cria uma task para cada cep
       |> Enum.map(&Task.await/1)  # Processa a resposta de cada task
   end

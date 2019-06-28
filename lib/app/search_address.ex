@@ -1,7 +1,6 @@
-# ceps = ['12290330', '12290335', '12290325', '12290331', '13040062', '15801010', '07183180', '08583007']
 defmodule SearchAddress do
-  def start(ceps) do
-    ceps
+  def start do
+    File.stream!('ceps.txt')
       |> Enum.map(&(by_cep/1))
   end
 
